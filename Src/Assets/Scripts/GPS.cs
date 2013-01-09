@@ -13,8 +13,8 @@ public class GPS : MonoBehaviour
     public GUIText status;
     public GUIText isEnabled;
 
-    private string desiredAccuracy;
-    private string updateDistance;
+    private string desiredAccuracy = "1";
+    private string updateDistance = "1";
 
     private float screenWidth = 0;
     private float screenHeight = 0;
@@ -54,13 +54,13 @@ public class GPS : MonoBehaviour
                                                     0.8f * screenHeight,
                                                     0.3f * screenHalfWidth,
                                                     0.1f * screenHeight),
-                                            "1");
+                                            desiredAccuracy);
 
         updateDistance = GUI.TextField(new Rect(0.2f * screenWidth,
                                                     0.9f * screenHeight,
                                                     0.3f * screenHalfWidth,
                                                     0.1f * screenHeight),
-                                            "1");
+                                            updateDistance);
 
         if (GUI.Button(new Rect(screenHalfWidth,
                              0,
