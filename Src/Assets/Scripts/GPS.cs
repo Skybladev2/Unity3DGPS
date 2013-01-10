@@ -38,6 +38,9 @@ public class GPS : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (longitude == null)
+            Debug.Log("longitude is null");
+
         screenHeight = Screen.height;
         screenWidth = Screen.width;
     }
