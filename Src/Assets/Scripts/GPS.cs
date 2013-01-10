@@ -13,11 +13,12 @@ public class GPS : MonoBehaviour
     public GUIText status;
     public GUIText isEnabled;
 
-    private string desiredAccuracy = "1";
-    private string updateDistance = "1";
+    private string desiredAccuracy = "0.01";
+	private string updateDistance = "0.01";
 
     private float screenWidth = 0;
     private float screenHeight = 0;
+	private float buttonWidthPart = 0.7f;
 
     private float screenHalfWidth
     {
@@ -53,21 +54,21 @@ public class GPS : MonoBehaviour
 
     void OnGUI()
     {
-        desiredAccuracy = GUI.TextField(new Rect(0.2f * screenWidth,
+        desiredAccuracy = GUI.TextField(new Rect(0.4f * screenWidth,
                                                     0.8f * screenHeight,
                                                     0.3f * screenHalfWidth,
                                                     0.1f * screenHeight),
                                             desiredAccuracy);
 
-        updateDistance = GUI.TextField(new Rect(0.2f * screenWidth,
+        updateDistance = GUI.TextField(new Rect(0.4f * screenWidth,
                                                     0.9f * screenHeight,
                                                     0.3f * screenHalfWidth,
                                                     0.1f * screenHeight),
                                             updateDistance);
 
-        if (GUI.Button(new Rect(screenHalfWidth,
+		if (GUI.Button(new Rect(screenHalfWidth + (screenHalfWidth * (1 - buttonWidthPart)),
                              0,
-                             screenHalfWidth,
+                             screenHalfWidth * buttonWidthPart,
                              screenHalfHeight),
                      "Start"))
         {
@@ -76,9 +77,9 @@ public class GPS : MonoBehaviour
                                 float.Parse(updateDistance));
         }
 
-        if (GUI.Button(new Rect(screenHalfWidth,
+		if (GUI.Button(new Rect(screenHalfWidth  + (screenHalfWidth * (1 - buttonWidthPart)),
                                 screenHalfHeight,
-                                screenHalfWidth,
+                                screenHalfWidth * buttonWidthPart,
                                 screenHalfHeight),
                         "Stop"))
         {
